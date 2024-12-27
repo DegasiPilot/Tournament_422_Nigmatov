@@ -41,6 +41,11 @@ namespace Tournament_422_Nigmatov.Pages
 
 		private void EnterBtn_Click(object sender, RoutedEventArgs e)
 		{
+			if (string.IsNullOrEmpty(_team.Name))
+			{
+				MessageBox.Show("Введите название команды");
+				return;
+			}
 			_team = App.db.Team.Add(_team);
 			App.db.SaveChanges();
 			if(_regPage != null)
