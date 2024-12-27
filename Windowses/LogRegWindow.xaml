@@ -6,5 +6,5 @@
         xmlns:local="clr-namespace:Tournament_422_Nigmatov.Windowses"
         mc:Ignorable="d"
         Title="LogRegWindow" Height="450" Width="800">
-    <Frame x:Name="LogRegFrame"></Frame>
+    <Frame NavigationUIVisibility="Hidden" x:Name="LogRegFrame"></Frame>
 </Window>

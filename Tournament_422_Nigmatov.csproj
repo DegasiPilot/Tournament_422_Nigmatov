@@ -66,6 +66,9 @@
     </ApplicationDefinition>
     <Compile Include="DB\Partial\Game.cs" />
     <Compile Include="DB\Partial\TournamentFormat.cs" />
+    <Compile Include="Pages\AddEditTeam.xaml.cs">
+      <DependentUpon>AddEditTeam.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AddEditTournament.xaml.cs">
       <DependentUpon>AddEditTournament.xaml</DependentUpon>
     </Compile>
@@ -144,6 +147,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AddEditTeam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddEditTournament.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

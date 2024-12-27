@@ -26,7 +26,7 @@
         <AssociationConnector Association="Tournament_Model.FK_Player_TeamRole" />
         <AssociationConnector Association="Tournament_Model.FK_TurnirMemeber_Team" />
         <AssociationConnector Association="Tournament_Model.FK_TournamentMemeber_TournamentMemberStatus" />
-        <EntityTypeShape EntityType="Tournament_Model.Tournament" Width="1.5" PointX="3" PointY="3.75" />
+        <EntityTypeShape EntityType="Tournament_Model.Tournament" Width="1.5" PointX="3" PointY="3.625" />
         <AssociationConnector Association="Tournament_Model.FK_Turnir_Game" />
         <AssociationConnector Association="Tournament_Model.FK_Match_Turnir" />
         <AssociationConnector Association="Tournament_Model.FK_Turnir_TurnirFormat" />

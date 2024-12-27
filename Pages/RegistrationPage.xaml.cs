@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Tournament_422_Nigmatov.DB;
+using Tournament_422_Nigmatov.Windowses;
 
 namespace Tournament_422_Nigmatov.Pages
 {
@@ -20,9 +22,51 @@ namespace Tournament_422_Nigmatov.Pages
 	/// </summary>
 	public partial class RegistrationPage : Page
 	{
-		public RegistrationPage()
+		LogRegWindow _myWindow;
+		Player _player;
+
+		public RegistrationPage(LogRegWindow myWindow)
 		{
 			InitializeComponent();
+			_myWindow = myWindow;
+			_player = new Player();
+			DataContext = _player;
+			TeamCb.ItemsSource = App.db.Team.ToList();
+			RoleCb.ItemsSource = App.db.TeamRole.ToList();
+		}
+
+		private void ToEnterBtn_Click(object sender, RoutedEventArgs e)
+		{
+			_myWindow.LogRegFrame.Navigate(new LoginPage(_myWindow));
+		}
+
+		private void RegBtn_Click(object sender, RoutedEventArgs e)
+		{
+			_player.Password = PasswordPb.Password;
+			if (string.IsNullOrEmpty(_player.Login))
+			{
+				MessageBox.Show("Введите логин");
+			}
+			else if (string.IsNullOrEmpty(_player.Password))
+			{
+				MessageBox.Show("Введите пароль");
+			}
+			else if (string.IsNullOrEmpty(_player.Nickname))
+			{
+				MessageBox.Show("Введите ник");
+			}
+			else if (_player.Team != null && _player.TeamRole == null)
+			{
+				MessageBox.Show("Выберите роль в команде");
+			}
+			else
+			{
+				_player = App.db.Player.Add(_player);
+				App.db.SaveChanges();
+				App.CurrentPlayer = _player;
+				_myWindow.DialogResult = true;
+				_myWindow.Close();
+			}
 		}
 	}
 }

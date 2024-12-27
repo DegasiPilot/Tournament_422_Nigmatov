@@ -29,9 +29,9 @@
                 <Button Margin="0 10 0 0" x:Name="ViewerLoginBtn" Click="ViewerLoginBtn_Click">Войти как зритель</Button>
             </StackPanel>
         </StackPanel>
-        <!--<StackPanel Margin="0 15 0 0" Width="180">
+        <StackPanel Margin="0 15 0 0" Width="180">
             <TextBlock TextAlignment="Center">Нет аккаунта?</TextBlock>
             <Button Click="Button_Click">Регистрация</Button>
-        </StackPanel>-->
+        </StackPanel>
     </StackPanel>
 </Page>

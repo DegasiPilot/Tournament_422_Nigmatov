@@ -21,7 +21,7 @@
             </StackPanel>
             <StackPanel Margin="5 0 0 0" Width="100">
                 <TextBlock>Время</TextBlock>
-                <TextBox x:Name="TimeTB"></TextBox>
+                <TextBox x:Name="TimeTB" TextChanged="TimeTB_TextChanged"></TextBox>
             </StackPanel>
         </StackPanel>
 

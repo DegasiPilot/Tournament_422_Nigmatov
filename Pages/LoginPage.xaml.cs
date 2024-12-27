@@ -95,7 +95,7 @@ namespace Tournament_422_Nigmatov.Pages
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			_myWindow.LogRegFrame.Navigate(new RegistrationPage());
+			_myWindow.LogRegFrame.Navigate(new RegistrationPage(_myWindow));
 		}
 	}
 }

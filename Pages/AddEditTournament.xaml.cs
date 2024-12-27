@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +23,7 @@ namespace Tournament_422_Nigmatov.Pages
 	public partial class AddEditTournament : Page
 	{
 		private Tournament _tournament;
+		private TimeSpan _time;
 
 		public AddEditTournament(Tournament tournament)
 		{
@@ -52,6 +54,10 @@ namespace Tournament_422_Nigmatov.Pages
 			{
 				MessageBox.Show("Выберите дату");
 			}
+			else if (TimeTB.Background == Brushes.Red)
+			{
+				MessageBox.Show("Введите время в формате чч:мм");
+			}
 			else if (_tournament.Game == null)
 			{
 				MessageBox.Show("Выберите игру");
@@ -70,6 +76,7 @@ namespace Tournament_422_Nigmatov.Pages
 			}
 			else
 			{
+				_tournament.DateOfEvent = _tournament.DateOfEvent.Value + _time;
 				_tournament.TurnirStatus = App.db.TurnirStatus.First();
 				_tournament = App.db.Tournament.Add(_tournament);
 				App.db.TournamentOrganizator.Add(new TournamentOrganizator() { Organizator = App.CurrentOrganizator, Tournament = _tournament });
@@ -86,5 +93,23 @@ namespace Tournament_422_Nigmatov.Pages
 				e.Handled = true;
 			}
         }
-    }
+
+		private void TimeTB_TextChanged(object sender, TextChangedEventArgs e)
+		{
+			ValidateTime(TimeTB, out _time);
+		}
+
+		private void ValidateTime(TextBox timeText, out TimeSpan timeSpan)
+		{
+			timeSpan = TimeSpan.Zero;
+			Regex time = new Regex(@"^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$");
+			if (time.IsMatch(timeText.Text))
+			{
+				timeSpan = new TimeSpan(int.Parse(timeText.Text.Split(':')[0]), int.Parse(timeText.Text.Split(':')[1]), 0);
+				timeText.Background = Brushes.LightGreen;
+			}
+			else
+				timeText.Background = Brushes.Red;
+		}
+	}
 }

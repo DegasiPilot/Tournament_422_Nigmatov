@@ -7,5 +7,42 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="RegistrationPage">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <TextBlock TextAlignment="Center" FontSize="18" Margin="0 0 0 15">Регистрация участника</TextBlock>
 
+        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+            <StackPanel Width="150">
+                <TextBlock>Логин</TextBlock>
+                <TextBox x:Name="LoginTb" Text="{Binding Login}"></TextBox>
+            </StackPanel>
+            <StackPanel Margin="5 0 0 0" Width="200">
+                <TextBlock>Пароль</TextBlock>
+                <PasswordBox x:Name="PasswordPb"></PasswordBox>
+            </StackPanel>
+        </StackPanel>
+
+        <TextBlock Margin="0 10 0 0">Никнейм</TextBlock>
+        <TextBox x:Name="NickTb" Text="{Binding NickName}"></TextBox>
+
+        <TextBlock Margin="0 10 0 0">Контакты</TextBlock>
+        <TextBox x:Name="ContactsTb" Text="{Binding Contacts}"></TextBox>
+
+        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+            <StackPanel>
+                <TextBlock Margin="0 10 0 0" TextWrapping="Wrap">Моя команда (оставь пустым если участвуешь один)</TextBlock>
+                <ComboBox x:Name="TeamCb" SelectedItem="{Binding TeamRole}"></ComboBox>
+                <Button Margin="0 10 0 0" x:Name="CreateTeamBtn">Создать команду</Button>
+            </StackPanel>
+            <StackPanel Margin="5 0 0 0" Width="100">
+                <TextBlock Margin="0 10 0 0">Роль в команде</TextBlock>
+                <ComboBox x:Name="RoleCb" SelectedItem="{Binding TeamRole}"></ComboBox>
+            </StackPanel>
+        </StackPanel>
+
+        <Button x:Name="RegBtn" Margin="0 15 0 0" Click="RegBtn_Click">Зарегистрироваться</Button>
+        <StackPanel Margin="0 15 0 0" Width="180">
+            <TextBlock TextAlignment="Center">Есть аккаунт?</TextBlock>
+            <Button x:Name="ToEnterBtn" Click="ToEnterBtn_Click">Войти</Button>
+        </StackPanel>
+    </StackPanel>
 </Page>

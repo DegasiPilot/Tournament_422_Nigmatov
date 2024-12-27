@@ -89,6 +89,7 @@
           <Property Name="PrizeFund" Type="int" />
           <Property Name="TournamentStatus_Id" Type="int" />
           <Property Name="MembersAmount" Type="int" />
+          <Property Name="AddionalLimits" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="TournamentFormat">
           <Key>
@@ -684,6 +685,7 @@
           <Property Name="PrizeFund" Type="Int32" />
           <Property Name="TournamentStatus_Id" Type="Int32" />
           <Property Name="MembersAmount" Type="Int32" />
+          <Property Name="AddionalLimits" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Game" Relationship="Tournament_Model.FK_Turnir_Game" FromRole="Tournament" ToRole="Game" />
           <NavigationProperty Name="Match" Relationship="Tournament_Model.FK_Match_Turnir" FromRole="Tournament" ToRole="Match" />
           <NavigationProperty Name="TournamentFormat" Relationship="Tournament_Model.FK_Turnir_TurnirFormat" FromRole="Tournament" ToRole="TournamentFormat" />
@@ -895,6 +897,7 @@
           <EntitySetMapping Name="Tournament">
             <EntityTypeMapping TypeName="Tournament_Model.Tournament">
               <MappingFragment StoreEntitySet="Tournament">
+                <ScalarProperty Name="AddionalLimits" ColumnName="AddionalLimits" />
                 <ScalarProperty Name="MembersAmount" ColumnName="MembersAmount" />
                 <ScalarProperty Name="TournamentStatus_Id" ColumnName="TournamentStatus_Id" />
                 <ScalarProperty Name="PrizeFund" ColumnName="PrizeFund" />
