@@ -68,5 +68,16 @@ namespace Tournament_422_Nigmatov.Pages
 				_myWindow.Close();
 			}
 		}
+
+		private void CreateTeamBtn_Click(object sender, RoutedEventArgs e)
+		{
+			_myWindow.LogRegFrame.Navigate(new AddEditTeam(_myWindow.LogRegFrame, this));
+		}
+
+		public void UpdateTeam(Team team)
+		{
+			TeamCb.ItemsSource = App.db.Team.ToList();
+			TeamCb.SelectedItem = team;
+		}
 	}
 }

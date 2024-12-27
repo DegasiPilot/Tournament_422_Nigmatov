@@ -31,7 +31,7 @@
             <StackPanel>
                 <TextBlock Margin="0 10 0 0" TextWrapping="Wrap">Моя команда (оставь пустым если участвуешь один)</TextBlock>
                 <ComboBox x:Name="TeamCb" SelectedItem="{Binding TeamRole}"></ComboBox>
-                <Button Margin="0 10 0 0" x:Name="CreateTeamBtn">Создать команду</Button>
+                <Button Margin="0 10 0 0" x:Name="CreateTeamBtn" Click="CreateTeamBtn_Click">Создать команду</Button>
             </StackPanel>
             <StackPanel Margin="5 0 0 0" Width="100">
                 <TextBlock Margin="0 10 0 0">Роль в команде</TextBlock>

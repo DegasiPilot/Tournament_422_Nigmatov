@@ -22,12 +22,14 @@ namespace Tournament_422_Nigmatov.Pages
 	public partial class AddEditTeam : Page
 	{
 		Frame _frame;
+		RegistrationPage _regPage;
 		Team _team;
 
-		public AddEditTeam(Frame frame, )
+		public AddEditTeam(Frame frame, RegistrationPage regPage)
 		{
 			InitializeComponent();
 			_frame = frame;
+			_regPage = regPage;
 			_team = new Team();
 			DataContext = _team;
 		}
@@ -39,8 +41,13 @@ namespace Tournament_422_Nigmatov.Pages
 
 		private void EnterBtn_Click(object sender, RoutedEventArgs e)
 		{
-			App.db.Team.Add(_team);
+			_team = App.db.Team.Add(_team);
 			App.db.SaveChanges();
+			if(_regPage != null)
+			{
+				_regPage.UpdateTeam(_team);
+			}
+			_frame.GoBack();
         }
     }
 }

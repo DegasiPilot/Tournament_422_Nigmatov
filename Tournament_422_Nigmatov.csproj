@@ -65,6 +65,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DB\Partial\Game.cs" />
+    <Compile Include="DB\Partial\Team.cs" />
+    <Compile Include="DB\Partial\TeamRole.cs" />
     <Compile Include="DB\Partial\TournamentFormat.cs" />
     <Compile Include="Pages\AddEditTeam.xaml.cs">
       <DependentUpon>AddEditTeam.xaml</DependentUpon>
