@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e1833e7d2f8c4f53bf38020734dc64d9" Name="Diagram1">
+        <EntityTypeShape EntityType="Tournament_Model.Game" Width="1.5" PointX="0.75" PointY="8" />
+        <EntityTypeShape EntityType="Tournament_Model.Match" Width="1.5" PointX="8.25" PointY="4.375" />
+        <EntityTypeShape EntityType="Tournament_Model.MatchMember" Width="1.5" PointX="10.5" PointY="4.5" />
+        <EntityTypeShape EntityType="Tournament_Model.Organizator" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="Tournament_Model.Player" Width="1.5" PointX="5.25" PointY="11.375" />
+        <EntityTypeShape EntityType="Tournament_Model.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.875" />
+        <EntityTypeShape EntityType="Tournament_Model.Team" Width="1.5" PointX="3" PointY="11.875" />
+        <EntityTypeShape EntityType="Tournament_Model.TeamRole" Width="1.5" PointX="3" PointY="15" />
+        <EntityTypeShape EntityType="Tournament_Model.Tournament" Width="1.5" PointX="3" PointY="3.75" />
+        <EntityTypeShape EntityType="Tournament_Model.TournamentFormat" Width="1.5" PointX="0.75" PointY="4.875" />
+        <EntityTypeShape EntityType="Tournament_Model.TournamentMemberStatus" Width="1.5" PointX="3" PointY="9.5" />
+        <EntityTypeShape EntityType="Tournament_Model.TournamentMemeber" Width="1.5" PointX="5.25" PointY="4.375" />
+        <EntityTypeShape EntityType="Tournament_Model.TournamentOrganizator" Width="1.5" PointX="5.25" PointY="1.625" />
+        <EntityTypeShape EntityType="Tournament_Model.TurnirStatus" Width="1.5" PointX="0.75" PointY="1.625" />
+        <AssociationConnector Association="Tournament_Model.FK_Turnir_Game" />
+        <AssociationConnector Association="Tournament_Model.FK_Match_MatchMember" />
+        <AssociationConnector Association="Tournament_Model.FK_Match_Turnir" />
+        <AssociationConnector Association="Tournament_Model.FK_MatchMember_Match" />
+        <AssociationConnector Association="Tournament_Model.FK_MatchMember_TurnirMemeber" />
+        <AssociationConnector Association="Tournament_Model.FK_TurnirOrganizator_Organizator" />
+        <AssociationConnector Association="Tournament_Model.FK_Player_Team" />
+        <AssociationConnector Association="Tournament_Model.FK_Player_TeamRole" />
+        <AssociationConnector Association="Tournament_Model.FK_TurnirMemeber_Team" />
+        <AssociationConnector Association="Tournament_Model.FK_Turnir_TurnirFormat" />
+        <AssociationConnector Association="Tournament_Model.FK_Turnir_TurnirStatus" />
+        <AssociationConnector Association="Tournament_Model.FK_TurnirMemeber_Turnir" />
+        <AssociationConnector Association="Tournament_Model.FK_TurnirOrganizator_Turnir" />
+        <AssociationConnector Association="Tournament_Model.FK_TournamentMemeber_TournamentMemberStatus" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
