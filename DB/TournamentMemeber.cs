@@ -28,7 +28,7 @@ namespace Tournament_422_Nigmatov.DB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MatchMember> MatchMember { get; set; }
         public virtual Team Team { get; set; }
-        public virtual Tournament Tournament { get; set; }
         public virtual TournamentMemberStatus TournamentMemberStatus { get; set; }
+        public virtual Tournament Tournament { get; set; }
     }
 }

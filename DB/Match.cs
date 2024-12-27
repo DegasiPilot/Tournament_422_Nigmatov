@@ -27,8 +27,8 @@ namespace Tournament_422_Nigmatov.DB
         public Nullable<System.TimeSpan> Duration { get; set; }
     
         public virtual MatchMember MatchMember { get; set; }
-        public virtual Tournament Tournament { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MatchMember> MatchMember1 { get; set; }
+        public virtual Tournament Tournament { get; set; }
     }
 }

@@ -9,14 +9,14 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Match">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Tournament_Id" Type="int" />
           <Property Name="DateTimeStart" Type="datetime" />
           <Property Name="Winner_Id" Type="int" />
@@ -26,7 +26,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Match_Id" Type="int" />
           <Property Name="Score" Type="int" />
           <Property Name="TournamentMember_Id" Type="int" />
@@ -35,7 +35,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Login" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -43,7 +43,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Nickname" Type="nvarchar" MaxLength="50" />
           <Property Name="Contacts" Type="nvarchar(max)" />
@@ -66,7 +66,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" />
           <Property Name="Contacts" Type="nvarchar(max)" />
         </EntityType>
@@ -74,41 +74,41 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Tournament">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" />
           <Property Name="Game_Id" Type="int" />
           <Property Name="TournamentFormat_Id" Type="int" />
           <Property Name="DateOfEvent" Type="datetime" />
           <Property Name="PrizeFund" Type="int" />
-          <Property Name="PlayersAmount" Type="int" />
           <Property Name="TournamentStatus_Id" Type="int" />
+          <Property Name="MembersAmount" Type="int" />
         </EntityType>
         <EntityType Name="TournamentFormat">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="TournamentMemberStatus">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="TournamentMemeber">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Team_Id" Type="int" />
           <Property Name="Tournament_Id" Type="int" />
           <Property Name="TournamentMemberStausId" Type="int" />
@@ -117,7 +117,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Tournament_Id" Type="int" />
           <Property Name="Organizator_Id" Type="int" />
         </EntityType>
@@ -125,7 +125,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_Match_MatchMember">
@@ -381,22 +381,13 @@
           <EntitySet Name="sysdiagrams" EntityType="Tournament_Model.sysdiagrams" />
           <EntitySet Name="Team" EntityType="Tournament_Model.Team" />
           <EntitySet Name="TeamRole" EntityType="Tournament_Model.TeamRole" />
-          <EntitySet Name="Tournament" EntityType="Tournament_Model.Tournament" />
           <EntitySet Name="TournamentFormat" EntityType="Tournament_Model.TournamentFormat" />
           <EntitySet Name="TournamentMemberStatus" EntityType="Tournament_Model.TournamentMemberStatus" />
           <EntitySet Name="TournamentMemeber" EntityType="Tournament_Model.TournamentMemeber" />
           <EntitySet Name="TournamentOrganizator" EntityType="Tournament_Model.TournamentOrganizator" />
           <EntitySet Name="TurnirStatus" EntityType="Tournament_Model.TurnirStatus" />
-          <AssociationSet Name="FK_Turnir_Game" Association="Tournament_Model.FK_Turnir_Game">
-            <End Role="Game" EntitySet="Game" />
-            <End Role="Tournament" EntitySet="Tournament" />
-          </AssociationSet>
           <AssociationSet Name="FK_Match_MatchMember" Association="Tournament_Model.FK_Match_MatchMember">
             <End Role="MatchMember" EntitySet="MatchMember" />
-            <End Role="Match" EntitySet="Match" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Match_Turnir" Association="Tournament_Model.FK_Match_Turnir">
-            <End Role="Tournament" EntitySet="Tournament" />
             <End Role="Match" EntitySet="Match" />
           </AssociationSet>
           <AssociationSet Name="FK_MatchMember_Match" Association="Tournament_Model.FK_MatchMember_Match">
@@ -423,6 +414,19 @@
             <End Role="Team" EntitySet="Team" />
             <End Role="TournamentMemeber" EntitySet="TournamentMemeber" />
           </AssociationSet>
+          <AssociationSet Name="FK_TournamentMemeber_TournamentMemberStatus" Association="Tournament_Model.FK_TournamentMemeber_TournamentMemberStatus">
+            <End Role="TournamentMemberStatus" EntitySet="TournamentMemberStatus" />
+            <End Role="TournamentMemeber" EntitySet="TournamentMemeber" />
+          </AssociationSet>
+          <EntitySet Name="Tournament" EntityType="Tournament_Model.Tournament" />
+          <AssociationSet Name="FK_Turnir_Game" Association="Tournament_Model.FK_Turnir_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="Tournament" EntitySet="Tournament" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Match_Turnir" Association="Tournament_Model.FK_Match_Turnir">
+            <End Role="Tournament" EntitySet="Tournament" />
+            <End Role="Match" EntitySet="Match" />
+          </AssociationSet>
           <AssociationSet Name="FK_Turnir_TurnirFormat" Association="Tournament_Model.FK_Turnir_TurnirFormat">
             <End Role="TournamentFormat" EntitySet="TournamentFormat" />
             <End Role="Tournament" EntitySet="Tournament" />
@@ -439,16 +443,12 @@
             <End Role="Tournament" EntitySet="Tournament" />
             <End Role="TournamentOrganizator" EntitySet="TournamentOrganizator" />
           </AssociationSet>
-          <AssociationSet Name="FK_TournamentMemeber_TournamentMemberStatus" Association="Tournament_Model.FK_TournamentMemeber_TournamentMemberStatus">
-            <End Role="TournamentMemberStatus" EntitySet="TournamentMemberStatus" />
-            <End Role="TournamentMemeber" EntitySet="TournamentMemeber" />
-          </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Game">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Tournament" Relationship="Tournament_Model.FK_Turnir_Game" FromRole="Game" ToRole="Tournament" />
         </EntityType>
@@ -456,20 +456,20 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Tournament_Id" Type="Int32" />
           <Property Name="DateTimeStart" Type="DateTime" Precision="3" />
           <Property Name="Winner_Id" Type="Int32" />
           <Property Name="Duration" Type="Time" Precision="0" />
           <NavigationProperty Name="MatchMember" Relationship="Tournament_Model.FK_Match_MatchMember" FromRole="Match" ToRole="MatchMember" />
-          <NavigationProperty Name="Tournament" Relationship="Tournament_Model.FK_Match_Turnir" FromRole="Match" ToRole="Tournament" />
           <NavigationProperty Name="MatchMember1" Relationship="Tournament_Model.FK_MatchMember_Match" FromRole="Match" ToRole="MatchMember" />
+          <NavigationProperty Name="Tournament" Relationship="Tournament_Model.FK_Match_Turnir" FromRole="Match" ToRole="Tournament" />
         </EntityType>
         <EntityType Name="MatchMember">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Match_Id" Type="Int32" />
           <Property Name="Score" Type="Int32" />
           <Property Name="TournamentMember_Id" Type="Int32" />
@@ -481,7 +481,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="TournamentOrganizator" Relationship="Tournament_Model.FK_TurnirOrganizator_Organizator" FromRole="Organizator" ToRole="TournamentOrganizator" />
@@ -490,7 +490,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Nickname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Contacts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -515,7 +515,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Contacts" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Player" Relationship="Tournament_Model.FK_Player_Team" FromRole="Team" ToRole="Player" />
@@ -525,34 +525,15 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Player" Relationship="Tournament_Model.FK_Player_TeamRole" FromRole="TeamRole" ToRole="Player" />
-        </EntityType>
-        <EntityType Name="Tournament">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Game_Id" Type="Int32" />
-          <Property Name="TournamentFormat_Id" Type="Int32" />
-          <Property Name="DateOfEvent" Type="DateTime" Precision="3" />
-          <Property Name="PrizeFund" Type="Int32" />
-          <Property Name="PlayersAmount" Type="Int32" />
-          <Property Name="TournamentStatus_Id" Type="Int32" />
-          <NavigationProperty Name="Game" Relationship="Tournament_Model.FK_Turnir_Game" FromRole="Tournament" ToRole="Game" />
-          <NavigationProperty Name="Match" Relationship="Tournament_Model.FK_Match_Turnir" FromRole="Tournament" ToRole="Match" />
-          <NavigationProperty Name="TournamentFormat" Relationship="Tournament_Model.FK_Turnir_TurnirFormat" FromRole="Tournament" ToRole="TournamentFormat" />
-          <NavigationProperty Name="TurnirStatus" Relationship="Tournament_Model.FK_Turnir_TurnirStatus" FromRole="Tournament" ToRole="TurnirStatus" />
-          <NavigationProperty Name="TournamentMemeber" Relationship="Tournament_Model.FK_TurnirMemeber_Turnir" FromRole="Tournament" ToRole="TournamentMemeber" />
-          <NavigationProperty Name="TournamentOrganizator" Relationship="Tournament_Model.FK_TurnirOrganizator_Turnir" FromRole="Tournament" ToRole="TournamentOrganizator" />
         </EntityType>
         <EntityType Name="TournamentFormat">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Tournament" Relationship="Tournament_Model.FK_Turnir_TurnirFormat" FromRole="TournamentFormat" ToRole="Tournament" />
         </EntityType>
@@ -560,7 +541,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="TournamentMemeber" Relationship="Tournament_Model.FK_TournamentMemeber_TournamentMemberStatus" FromRole="TournamentMemberStatus" ToRole="TournamentMemeber" />
         </EntityType>
@@ -568,20 +549,20 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Team_Id" Type="Int32" />
           <Property Name="Tournament_Id" Type="Int32" />
           <Property Name="TournamentMemberStausId" Type="Int32" />
           <NavigationProperty Name="MatchMember" Relationship="Tournament_Model.FK_MatchMember_TurnirMemeber" FromRole="TournamentMemeber" ToRole="MatchMember" />
           <NavigationProperty Name="Team" Relationship="Tournament_Model.FK_TurnirMemeber_Team" FromRole="TournamentMemeber" ToRole="Team" />
-          <NavigationProperty Name="Tournament" Relationship="Tournament_Model.FK_TurnirMemeber_Turnir" FromRole="TournamentMemeber" ToRole="Tournament" />
           <NavigationProperty Name="TournamentMemberStatus" Relationship="Tournament_Model.FK_TournamentMemeber_TournamentMemberStatus" FromRole="TournamentMemeber" ToRole="TournamentMemberStatus" />
+          <NavigationProperty Name="Tournament" Relationship="Tournament_Model.FK_TurnirMemeber_Turnir" FromRole="TournamentMemeber" ToRole="Tournament" />
         </EntityType>
         <EntityType Name="TournamentOrganizator">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Tournament_Id" Type="Int32" />
           <Property Name="Organizator_Id" Type="Int32" />
           <NavigationProperty Name="Organizator" Relationship="Tournament_Model.FK_TurnirOrganizator_Organizator" FromRole="TournamentOrganizator" ToRole="Organizator" />
@@ -591,22 +572,10 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Tournament" Relationship="Tournament_Model.FK_Turnir_TurnirStatus" FromRole="TurnirStatus" ToRole="Tournament" />
         </EntityType>
-        <Association Name="FK_Turnir_Game">
-          <End Type="Tournament_Model.Game" Role="Game" Multiplicity="0..1" />
-          <End Type="Tournament_Model.Tournament" Role="Tournament" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Game">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Tournament">
-              <PropertyRef Name="Game_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Match_MatchMember">
           <End Type="Tournament_Model.MatchMember" Role="MatchMember" Multiplicity="0..1" />
           <End Type="Tournament_Model.Match" Role="Match" Multiplicity="*" />
@@ -616,18 +585,6 @@
             </Principal>
             <Dependent Role="Match">
               <PropertyRef Name="Winner_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Match_Turnir">
-          <End Type="Tournament_Model.Tournament" Role="Tournament" Multiplicity="0..1" />
-          <End Type="Tournament_Model.Match" Role="Match" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Tournament">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Match">
-              <PropertyRef Name="Tournament_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -703,6 +660,61 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_TournamentMemeber_TournamentMemberStatus">
+          <End Type="Tournament_Model.TournamentMemberStatus" Role="TournamentMemberStatus" Multiplicity="0..1" />
+          <End Type="Tournament_Model.TournamentMemeber" Role="TournamentMemeber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TournamentMemberStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TournamentMemeber">
+              <PropertyRef Name="TournamentMemberStausId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tournament">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Game_Id" Type="Int32" />
+          <Property Name="TournamentFormat_Id" Type="Int32" />
+          <Property Name="DateOfEvent" Type="DateTime" Precision="3" />
+          <Property Name="PrizeFund" Type="Int32" />
+          <Property Name="TournamentStatus_Id" Type="Int32" />
+          <Property Name="MembersAmount" Type="Int32" />
+          <NavigationProperty Name="Game" Relationship="Tournament_Model.FK_Turnir_Game" FromRole="Tournament" ToRole="Game" />
+          <NavigationProperty Name="Match" Relationship="Tournament_Model.FK_Match_Turnir" FromRole="Tournament" ToRole="Match" />
+          <NavigationProperty Name="TournamentFormat" Relationship="Tournament_Model.FK_Turnir_TurnirFormat" FromRole="Tournament" ToRole="TournamentFormat" />
+          <NavigationProperty Name="TurnirStatus" Relationship="Tournament_Model.FK_Turnir_TurnirStatus" FromRole="Tournament" ToRole="TurnirStatus" />
+          <NavigationProperty Name="TournamentMemeber" Relationship="Tournament_Model.FK_TurnirMemeber_Turnir" FromRole="Tournament" ToRole="TournamentMemeber" />
+          <NavigationProperty Name="TournamentOrganizator" Relationship="Tournament_Model.FK_TurnirOrganizator_Turnir" FromRole="Tournament" ToRole="TournamentOrganizator" />
+        </EntityType>
+        <Association Name="FK_Turnir_Game">
+          <End Type="Tournament_Model.Game" Role="Game" Multiplicity="0..1" />
+          <End Type="Tournament_Model.Tournament" Role="Tournament" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tournament">
+              <PropertyRef Name="Game_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Match_Turnir">
+          <End Type="Tournament_Model.Tournament" Role="Tournament" Multiplicity="0..1" />
+          <End Type="Tournament_Model.Match" Role="Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tournament">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="Tournament_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Turnir_TurnirFormat">
           <End Type="Tournament_Model.TournamentFormat" Role="TournamentFormat" Multiplicity="0..1" />
           <End Type="Tournament_Model.Tournament" Role="Tournament" Multiplicity="*" />
@@ -751,19 +763,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TournamentMemeber_TournamentMemberStatus">
-          <End Type="Tournament_Model.TournamentMemberStatus" Role="TournamentMemberStatus" Multiplicity="0..1" />
-          <End Type="Tournament_Model.TournamentMemeber" Role="TournamentMemeber" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TournamentMemberStatus">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="TournamentMemeber">
-              <PropertyRef Name="TournamentMemberStausId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -849,20 +849,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Tournament">
-            <EntityTypeMapping TypeName="Tournament_Model.Tournament">
-              <MappingFragment StoreEntitySet="Tournament">
-                <ScalarProperty Name="TournamentStatus_Id" ColumnName="TournamentStatus_Id" />
-                <ScalarProperty Name="PlayersAmount" ColumnName="PlayersAmount" />
-                <ScalarProperty Name="PrizeFund" ColumnName="PrizeFund" />
-                <ScalarProperty Name="DateOfEvent" ColumnName="DateOfEvent" />
-                <ScalarProperty Name="TournamentFormat_Id" ColumnName="TournamentFormat_Id" />
-                <ScalarProperty Name="Game_Id" ColumnName="Game_Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TournamentFormat">
             <EntityTypeMapping TypeName="Tournament_Model.TournamentFormat">
               <MappingFragment StoreEntitySet="TournamentFormat">
@@ -901,6 +887,20 @@
           <EntitySetMapping Name="TurnirStatus">
             <EntityTypeMapping TypeName="Tournament_Model.TurnirStatus">
               <MappingFragment StoreEntitySet="TurnirStatus">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tournament">
+            <EntityTypeMapping TypeName="Tournament_Model.Tournament">
+              <MappingFragment StoreEntitySet="Tournament">
+                <ScalarProperty Name="MembersAmount" ColumnName="MembersAmount" />
+                <ScalarProperty Name="TournamentStatus_Id" ColumnName="TournamentStatus_Id" />
+                <ScalarProperty Name="PrizeFund" ColumnName="PrizeFund" />
+                <ScalarProperty Name="DateOfEvent" ColumnName="DateOfEvent" />
+                <ScalarProperty Name="TournamentFormat_Id" ColumnName="TournamentFormat_Id" />
+                <ScalarProperty Name="Game_Id" ColumnName="Game_Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

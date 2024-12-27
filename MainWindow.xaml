@@ -8,13 +8,14 @@
         Title="Онлайн-турнирная платформа" Height="720" Width="1080" MinHeight="720" MinWidth="1280">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="119*"/>
-            <ColumnDefinition Width="1161*"/>
+            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="1100*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Margin="5">
             <TextBlock>Роль:</TextBlock>
             <TextBlock x:Name="RoleTb"></TextBlock>
+            <Button Margin="0 15 0 0" x:Name="TournamentBtn" Click="TournamentBtn_Click">Создать турнир</Button>
         </StackPanel>
-        <Frame x:Name="MainFrame" Grid.Column="1"></Frame>
+        <Frame NavigationUIVisibility="Hidden" x:Name="MainFrame" Grid.Column="1"></Frame>
     </Grid>
 </Window>

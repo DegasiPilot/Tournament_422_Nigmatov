@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Tournament_422_Nigmatov.Pages;
 using Tournament_422_Nigmatov.Windowses;
 
 namespace Tournament_422_Nigmatov
@@ -24,15 +25,20 @@ namespace Tournament_422_Nigmatov
 		public MainWindow()
 		{
 			InitializeComponent();
-			while (true)
+			App.MainFrame = MainFrame;
+			Window window = new LogRegWindow();
+			if(window.ShowDialog() != true)
 			{
-				Window window = new LogRegWindow();
-				if(window.ShowDialog() == true)
-				{
-					break;
-				}
+				Application.Current.Shutdown();
 			}
 			RoleTb.Text = App.CurrentRole;
+			TournamentBtn.Visibility = App.CurrentRole == App.OrganiztorName ? Visibility.Visible : Visibility.Collapsed;
+			MainFrame.Navigate(new HomePage());
+		}
+
+		private void TournamentBtn_Click(object sender, RoutedEventArgs e)
+		{
+			MainFrame.Navigate(new AddEditTournament(null));
 		}
 	}
 }

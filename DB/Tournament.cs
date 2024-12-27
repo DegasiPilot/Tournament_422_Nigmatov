@@ -28,8 +28,8 @@ namespace Tournament_422_Nigmatov.DB
         public Nullable<int> TournamentFormat_Id { get; set; }
         public Nullable<System.DateTime> DateOfEvent { get; set; }
         public Nullable<int> PrizeFund { get; set; }
-        public Nullable<int> PlayersAmount { get; set; }
         public Nullable<int> TournamentStatus_Id { get; set; }
+        public Nullable<int> MembersAmount { get; set; }
     
         public virtual Game Game { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

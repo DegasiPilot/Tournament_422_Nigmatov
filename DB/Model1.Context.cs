@@ -33,11 +33,11 @@ namespace Tournament_422_Nigmatov.DB
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Team> Team { get; set; }
         public virtual DbSet<TeamRole> TeamRole { get; set; }
-        public virtual DbSet<Tournament> Tournament { get; set; }
         public virtual DbSet<TournamentFormat> TournamentFormat { get; set; }
         public virtual DbSet<TournamentMemberStatus> TournamentMemberStatus { get; set; }
         public virtual DbSet<TournamentMemeber> TournamentMemeber { get; set; }
         public virtual DbSet<TournamentOrganizator> TournamentOrganizator { get; set; }
         public virtual DbSet<TurnirStatus> TurnirStatus { get; set; }
+        public virtual DbSet<Tournament> Tournament { get; set; }
     }
 }

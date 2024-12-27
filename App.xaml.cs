@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using Tournament_422_Nigmatov.DB;
 
 namespace Tournament_422_Nigmatov
@@ -8,6 +9,8 @@ namespace Tournament_422_Nigmatov
 	/// </summary>
 	public partial class App : Application
 	{
+		public static Frame MainFrame;
+
 		public const string OrganiztorName = "Организатор";
 		public const string PlayerName = "Участник";
 		public const string ViewerName = "Зритель";
