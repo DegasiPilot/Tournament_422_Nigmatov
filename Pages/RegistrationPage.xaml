@@ -22,7 +22,7 @@
         </StackPanel>
 
         <TextBlock Margin="0 10 0 0">Никнейм</TextBlock>
-        <TextBox x:Name="NickTb" Text="{Binding NickName}"></TextBox>
+        <TextBox x:Name="NickTb" Text="{Binding Nickname}"></TextBox>
 
         <TextBlock Margin="0 10 0 0">Контакты</TextBlock>
         <TextBox x:Name="ContactsTb" Text="{Binding Contacts}"></TextBox>
@@ -30,7 +30,7 @@
         <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
             <StackPanel>
                 <TextBlock Margin="0 10 0 0" TextWrapping="Wrap">Моя команда (оставь пустым если участвуешь один)</TextBlock>
-                <ComboBox x:Name="TeamCb" SelectedItem="{Binding TeamRole}"></ComboBox>
+                <ComboBox x:Name="TeamCb" SelectedItem="{Binding Team}"></ComboBox>
                 <Button Margin="0 10 0 0" x:Name="CreateTeamBtn" Click="CreateTeamBtn_Click">Создать команду</Button>
             </StackPanel>
             <StackPanel Margin="5 0 0 0" Width="100">
